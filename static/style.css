@@ -1,0 +1,65 @@
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#f5f6fa;
+}
+
+.container{
+    width:90%;
+    margin:auto;
+    padding:30px;
+}
+
+h1{
+    text-align:center;
+}
+
+.filters{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    justify-content:center;
+    margin-bottom:30px;
+}
+
+.filters input,
+.filters select{
+    padding:12px;
+    border-radius:10px;
+    border:1px solid #ccc;
+}
+
+button{
+    padding:12px 18px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+.job-grid{
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(350px,1fr));
+    gap:20px;
+}
+
+.job-card{
+    background:white;
+    border-radius:16px;
+    padding:20px;
+    box-shadow:0 2px 8px rgba(0,0,0,.1);
+}
+
+.job-card h2{
+    margin-top:0;
+}
+
+.job-card a{
+    display:inline-block;
+    margin-top:10px;
+    padding:10px 18px;
+    background:black;
+    color:white;
+    border-radius:8px;
+    text-decoration:none;
+}

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Remote Job Portal</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static',
+          filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Remote Job Portal</h1>
+
+    <form method="GET" class="filters">
+
+        <input
+            type="text"
+            name="search"
+            placeholder="Search job/company/skill"
+            value="{{ search }}"
+        >
+
+        <!-- Location Dropdown -->
+        <select name="location">
+            <option value="">
+                All Locations
+            </option>
+
+            {% for loc in locations %}
+            <option value="{{ loc }}"
+                {% if location == loc %}
+                    selected
+                {% endif %}
+            >
+                {{ loc }}
+            </option>
+            {% endfor %}
+        </select>
+
+        <!-- Role Dropdown -->
+        <select name="role">
+            <option value="">
+                All Fields
+            </option>
+
+            {% for r in roles %}
+            <option value="{{ r }}"
+                {% if role == r %}
+                    selected
+                {% endif %}
+            >
+                {{ r }}
+            </option>
+            {% endfor %}
+        </select>
+
+        <!-- Benefits Dropdown -->
+        <select name="benefit">
+            <option value="">
+                Benefits
+            </option>
+
+            {% for b in benefits %}
+            <option value="{{ b }}"
+                {% if benefit == b %}
+                    selected
+                {% endif %}
+            >
+                {{ b }}
+            </option>
+            {% endfor %}
+        </select>
+
+        <!-- Salary Range Dropdown -->
+        <select name="salary_range">
+
+            <option value="">
+                Salary Range
+            </option>
+
+            <option value="0-50000">
+                $0 - $50k
+            </option>
+
+            <option value="50000-100000">
+                $50k - $100k
+            </option>
+
+            <option value="100000-150000">
+                $100k - $150k
+            </option>
+
+            <option value="150000+">
+                $150k+
+            </option>
+
+        </select>
+
+        <button type="submit">
+            Apply Filters
+        </button>
+
+    </form>
+
+    <div class="job-grid">
+
+        {% for job in jobs %}
+
+        <div class="job-card">
+
+            <h2>
+                {{ job['Job Position'] }}
+            </h2>
+
+            <p>
+                <strong>Company:</strong>
+                {{ job['Company Name'] }}
+            </p>
+
+            <p>
+                <strong>Location:</strong>
+                {{ job['Location'] }}
+            </p>
+
+            <p>
+                <strong>Role:</strong>
+                {{ job['Role'] }}
+            </p>
+
+            <p>
+                <strong>Skills:</strong>
+                {{ job['Tags / Skills'] }}
+            </p>
+
+            <p>
+                <strong>Benefits:</strong>
+                {{ job['Benefits'] }}
+            </p>
+
+            <p>
+                <strong>Salary:</strong>
+                ${{ job['Salary Min USD'] }}
+                -
+                ${{ job['Salary Max USD'] }}
+            </p>
+
+            <a href="{{ job['Apply URL'] }}"
+               target="_blank">
+                Apply Now
+            </a>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+</body>
+</html>
