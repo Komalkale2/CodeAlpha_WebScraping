@@ -125,7 +125,7 @@ CodeAlpha_WebScraping/
 Clone repository:
 
 ```bash
-git clone YOUR_REPOSITORY_LINK
+git clone https://github.com/Komalkale2/CodeAlpha_WebScraping.git
 cd CodeAlpha_WebScraping
 ```
 
